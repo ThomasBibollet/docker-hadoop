@@ -25,6 +25,7 @@ Le yarnmaster permet de distribuer les tâches et de gérer les ressources (YARN
 
 _Fonctionnement_ :
 1) Télécharger les images
+
 docker pull loicmathieu/cloudera-cdh-namenode
 docker pull loicmathieu/cloudera-cdh-datanode
 docker pull loicmathieu/cloudera-cdh-edgenode
