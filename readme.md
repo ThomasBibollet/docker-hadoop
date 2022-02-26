@@ -1,6 +1,9 @@
-Nom du projet : Cloudera - Hadoop avec Docker-Compose
+Nom du projet : 
+
+Cloudera - Hadoop avec Docker-Compose
 
 Description :
+
 Sur Docker, on a plusieurs conteneurs qui permettent de créer un cluster Hadoop Cloudera
 
 L'intérêt est de réunir nos différents conteneurs pour les assembler
@@ -19,6 +22,19 @@ Le datanode permet de traiter les données de façon distribuée, sur Hadoop les
 L'edgenode nous permet de communiquer avec le cluster. Il nous sert de passerelle pour communiquer avec les autres noeuds.
 Le namenode permet de gérer le système de fichiers et les datanodes.
 Le yarnmaster permet de distribuer les tâches et de gérer les ressources (YARN).
+
+Fonctionnement :
+1) Télécharger les images
+docker pull loicmathieu/cloudera-cdh-namenode
+docker pull loicmathieu/cloudera-cdh-datanode
+docker pull loicmathieu/cloudera-cdh-edgenode
+docker pull loicmathieu/cloudera-cdh-yarnmaster
+
+2) Lancer l'application
+docker-compose up
+
+3) Pour Azure :
+docker context use contexteacihadoop
 
 Liens :
 https://hub.docker.com/r/loicmathieu/cloudera-cdh-edgenode
