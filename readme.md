@@ -12,8 +12,11 @@ Il suffit de régler les ports pour lier les conteneurs ensemble pour avoir notr
 
 _Schéma de l'architecture_:
 -2 datanodes
+
 -1 edgenode (noeud maitre)
+
 -1 namenode
+
 -1 yarnmaster
 
 _Explication des conteneurs_:
@@ -32,12 +35,15 @@ docker pull loicmathieu/cloudera-cdh-edgenode
 docker pull loicmathieu/cloudera-cdh-yarnmaster
 
 2) Lancer l'application
+
 docker-compose up
 
 3) Pour Azure :
+
 docker context use contexteacihadoop
 
 _Liens_ :
+
 https://hub.docker.com/r/loicmathieu/cloudera-cdh-edgenode
 https://hub.docker.com/r/loicmathieu/cloudera-cdh-datanode
 https://hub.docker.com/r/loicmathieu/cloudera-cdh-namenode
