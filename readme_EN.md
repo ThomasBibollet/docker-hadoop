@@ -46,6 +46,10 @@ docker-compose up
 
 docker context use contextacihadoop
 
+4) In case of a network error :
+
+net stop hns
+
 _Links_ :
 
 https://hub.docker.com/r/loicmathieu/cloudera-cdh-edgenode
