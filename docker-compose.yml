@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+    namenode:
+        image: loicmathieu/cloudera-cdh-namenode
+        ports: 
+         - "8020:8020"
+    yarnmaster:
+        image: loicmathieu/cloudera-cdh-yarnmaster
+        ports:
+         - "8032:8032"
+         - "8088:8088"
+    datanode1:
+        image: loicmathieu/cloudera-cdh-datanode
+        links:
+         - "namenode"
+         - "yarnmaster"
+        ports:
+         - "50020:50020"
+         - "50075:50075"
+         - "8042:8042"
+    datanode2:
+        image: loicmathieu/cloudera-cdh-datanode
+        links:
+         - "namenode"
+         - "yarnmaster"
+        ports:
+         - "50021:50021"
+         - "50076:50076"
+         - "8043:8043"
+    edgenode:
+        image: loicmathieu/cloudera-cdh-edgenode
+        links:
+         - "namenode"
+         - "yarnmaster"
+        command: bash -c "
+             hadoop fs -mkdir /cities 
+             && hadoop fs -put cities.csv /cities 
+             && hadoop fs -cat /cities/cities.csv 
+             && hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar wordcount /cities/cities.csv /wordcount
+             && hadoop fs -ls /wordcount"
