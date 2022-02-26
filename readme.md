@@ -11,6 +11,7 @@ Docker-Compose va créer un seul réseau pour notre application et permettre de 
 Il suffit de régler les ports pour lier les conteneurs ensemble pour avoir notre application
 
 _Schéma de l'architecture_:
+
 -2 datanodes
 
 -1 edgenode (noeud maitre)
@@ -30,8 +31,11 @@ _Fonctionnement_ :
 1) Télécharger les images
 
 docker pull loicmathieu/cloudera-cdh-namenode
+
 docker pull loicmathieu/cloudera-cdh-datanode
+
 docker pull loicmathieu/cloudera-cdh-edgenode
+
 docker pull loicmathieu/cloudera-cdh-yarnmaster
 
 2) Lancer l'application
